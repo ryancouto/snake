@@ -9,13 +9,13 @@
     <figure class="snake-game">
     <h1>Snake</h1>
 
-    <ul class="board">
+    <ul class="board group">
 
     </ul>
 
     </figure>
-
     <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../keymaster-master/keymaster.js"></script>
     <script src="../js/coord.js"></script>
     <script src="../js/snake.js"></script>
     <script src="../js/board.js"></script>
@@ -23,8 +23,25 @@
     <script>
     $(function (){
       var $snakeGameEl = $(".snake-game");
-      var board = new SnakeGame.Board(5, 5);
+      var board = new SnakeGame.Board(20, 20);
       var view = new SnakeGame.View($snakeGameEl, board);
+
+      $(window).on("keydown", function(event) {
+        switch (event.keyCode) {
+          case 37:
+            view.start('W');
+            break;
+          case 38:
+            view.start('S');
+            break;
+          case 39:
+            view.start('E');
+            break;
+          case 40:
+            view.start('N');
+            break;
+        }
+      })
     })
     </script>
 

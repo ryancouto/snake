@@ -1,0 +1,45 @@
+body, html, ul, li, h1 {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  color: inherit;
+  background: transparent;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.snake-game {
+  text-align: center;
+  font-size: 36px;
+}
+
+.board {
+  margin: 0 auto;
+  width: 400px;
+  border: 1px solid #AAA;
+}
+
+.board > li {
+  float: left;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #AAA;
+}
+
+.snake {
+  background: #F00;
+}
+
+.apple {
+  background: #0f0;
+}

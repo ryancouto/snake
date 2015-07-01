@@ -9,7 +9,7 @@
   }
 
   Snake.prototype.move = function () {
-    var nextHeadPos = SnakeGame.Coord.add(this.body[0]. this.dir);
+    var nextHeadPos = SnakeGame.Coord.plus(this.body[0], this.dir);
     this.body.pop();
     this.body.unshift(nextHeadPos);
   }

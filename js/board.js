@@ -10,7 +10,7 @@
     this.snake = new SnakeGame.Snake(
       SnakeGame.Coord.randomPos(this.dimX, this.dimY)
     );
-    this.applePos = this.appleGen();
+    this.appleGen();
   }
 
   Board.prototype.appleGen = function () {
@@ -29,12 +29,19 @@
     } else if (head[1] < 0 || head[1] >= this.dimY) {
       return true;
     }
-
     return false;
   }
 
   Board.prototype.lose = function () {
     return this.snake.collidedWithSelf() || this.snakeHitWall();
+  }
+
+  Board.prototype.step = function () {
+    this.snake.move();
+    if (SnakeGame.Coord.equals(this.snake.head(), this.applePos)){
+      this.snake.eat();
+      this.appleGen();
+    }
   }
 
 })();
