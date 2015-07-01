@@ -47,4 +47,11 @@
     }
   }
 
+  var Coord.randomPos = function (dimX, dimY) {
+    return [
+      Math.floor(Math.random() * dimX),
+      Math.floor(Math.random() * dimY)
+    ];
+  }
+
 })
