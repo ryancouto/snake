@@ -22,7 +22,19 @@
     }
   }
 
+  Board.prototype.snakeHitWall = function () {
+    var head = this.snake.head();
+    if (head[0] < 0 || head[0] >= this.dimX) {
+      return true;
+    } else if (head[1] < 0 || head[1] >= this.dimY) {
+      return true;
+    }
 
+    return false;
+  }
 
+  Board.prototype.lose = function () {
+    return this.snake.collidedWithSelf() || this.snakeHitWall();
+  }
 
 })();
