@@ -3,8 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>SNAKE!</title>
+    <link rel="stylesheet" href="../css/snake.css" charset="utf-8">
   </head>
   <body>
-    
+    <figure class="snake-game">
+    <h1>Snake</h1>
+
+    <ul class="board">
+
+    </ul>
+
+    </figure>
+
+    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../js/coord.js"></script>
+    <script src="../js/snake.js"></script>
+    <script src="../js/board.js"></script>
+    <script src="../js/snake-view.js"></script>
+    <script>
+    $(function (){
+      var $snakeGameEl = $(".snake-game");
+      var board = new SnakeGame.Board(5, 5);
+      var view = new SnakeGame.View($snakeGameEl, board);
+    })
+    </script>
+
+
   </body>
 </html>

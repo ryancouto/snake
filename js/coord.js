@@ -1,11 +1,11 @@
 (function () {
-  if (typeof SnakeGame === "undefined") {
+  if (typeof SnakeGame === "undefined"){
     window.SnakeGame = {};
   }
 
-  var Coord = window.SnakeGame.Coord = {};
+  var Coord = SnakeGame.Coord = function (){};
 
-  var Coord.plus = function(pos, dir) {
+  Coord.plus = function(pos, dir) {
     var nextPos = pos;
 
     switch (dir){
@@ -26,11 +26,11 @@
     return nextPos;
   }
 
-  var Coord.equals = function(thisPos, otherPos) {
+  Coord.equals = function(thisPos, otherPos) {
     return (thisPos[0] === otherPos[0] && thisPos[1] === otherPos[1]);
   }
 
-  var Coord.opposite = function (thisDir, thatDir) {
+  Coord.opposite = function (thisDir, thatDir) {
     switch (thisDir) {
       case 'N':
         return thatDir === 'S';
@@ -47,17 +47,17 @@
     }
   }
 
-  var Coord.randomPos = function (dimX, dimY) {
+  Coord.randomPos = function (dimX, dimY) {
     return [
       Math.floor(Math.random() * dimX),
       Math.floor(Math.random() * dimY)
     ];
   }
 
-  var Coord.collidesWithArray = function (pos, array) {
+  Coord.collidesWithArray = function (pos, array) {
     return array.some( function(el) {
       return Coord.equals(el, pos);
     });
   }
 
-})
+})();
