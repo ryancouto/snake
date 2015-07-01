@@ -1,10 +1,12 @@
 (function () {
-  if (typeof Snake === "undefined") {
-    window.Snake = {};
+  if (typeof SnakeGame === "undefined") {
+    window.SnakeGame = {};
   }
 
-  var Snake = function (headPos) {
+  var Snake = SnakeGame.Snake = function (headPos) {
     this.body = [headPos];
     this.dir = undefined;
   }
+
+
 })();
