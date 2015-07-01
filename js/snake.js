@@ -19,11 +19,23 @@
     this.dir = newDir;
   }
 
-  Snake.prototype.collided = function() {
-    return this.body.slice(1).some( function(el) {
-      return SnakeGame.Coord.equals(el, this.body[0]);
+  Snake.prototype.collidedWithSelf = function() {
+    return this.tail().some( function(el) {
+      return SnakeGame.Coord.equals(el, this.head());
     }.bind(this));
   }
 
-  
+  Snake.prototype.head = function() {
+    return this.body[0];
+  }
+
+  Snake.prototype.tail = function() {
+    return this.body.slice(1);
+  }
+
+  Snake.prototype.eat = function () {
+    this.body.push(null);
+  }
+
+
 })();
