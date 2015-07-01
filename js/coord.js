@@ -54,4 +54,10 @@
     ];
   }
 
+  var Coord.collidesWithArray = function (pos, array) {
+    return array.some( function(el) {
+      return Coord.equals(el, pos);
+    });
+  }
+
 })

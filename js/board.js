@@ -15,9 +15,7 @@
 
   Board.prototype.appleGen = function () {
     var randomPos = SnakeGame.Coord.randomPos(this.dimX, this.dimY);
-    if (this.snake.body.some( function (bodyEl) {
-      return (SnakeGame.Coord.equals(randomPos, bodyEl))
-    })) {
+    if (SnakeGame.Coord.collidesWithArray(randomPos, this.snake.body)) {
       this.appleGen();
     } else {
       this.applePos = randomPos;
