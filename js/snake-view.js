@@ -7,24 +7,24 @@
   var View = SnakeGame.View = function ($el, board) {
     this.$el = $el;
     this.board = board;
-    this.setupBoard();
+    this.render();
     this.started = false;
   }
 
-  View.prototype.setupBoard = function() {
-    var $boardEl = this.$el.find('.board');
-    for (i = 0; i < this.board.dimX; i++){
-      for (var j = 0; j < this.board.dimY; j++){
-        var $liEl = $("<li></li>");
-        if (SnakeGame.Coord.equals([i,j], this.board.snake.head())){
-          $liEl.addClass("snake");
-        } else if (SnakeGame.Coord.equals([i,j], this.board.applePos)){
-          $liEl.addClass("apple");
-        }
-        $boardEl.append($liEl);
-      }
-    }
-  }
+  // View.prototype.setupBoard = function() {
+  //   var $boardEl = this.$el.find('.board');
+  //   for (i = 0; i < this.board.dimX; i++){
+  //     for (var j = 0; j < this.board.dimY; j++){
+  //       var $liEl = $("<li></li>");
+  //       if (SnakeGame.Coord.equals([i,j], this.board.snake.head())){
+  //         $liEl.addClass("snake");
+  //       } else if (SnakeGame.Coord.equals([i,j], this.board.applePos)){
+  //         $liEl.addClass("apple");
+  //       }
+  //       $boardEl.append($liEl);
+  //     }
+  //   }
+  // }
 
   View.prototype.bindKeyHandlers = function () {
     var snake = this.board.snake;
@@ -55,14 +55,27 @@
       console.log("step!")
       if (board.lose()) {
         alert("You lose!");
+      } else {
+        this.render();
       }
-    }, 500);
-
+    }.bind(this), 200);
   }
 
-  // View.prototype.installListeners = function() {
-  //
-  // }
+  View.prototype.render = function () {
+    var $boardEl = this.$el.find('.board');
+    $boardEl.empty();
+    for (i = 0; i < this.board.dimY; i++){
+      for (var j = 0; j < this.board.dimX; j++){
+        var $liEl = $("<li></li>");
+        if (SnakeGame.Coord.equals([j,i], this.board.snake.head())){
+          $liEl.addClass("snake");
+        } else if (SnakeGame.Coord.equals([j,i], this.board.applePos)){
+          $liEl.addClass("apple");
+        }
+        $boardEl.append($liEl);
+      }
+    }
+  }
 
 
 })();

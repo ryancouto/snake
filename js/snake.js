@@ -10,8 +10,8 @@
 
   Snake.prototype.move = function () {
     var nextHeadPos = SnakeGame.Coord.plus(this.body[0], this.dir);
-    this.body.pop();
-    this.body.unshift(nextHeadPos);
+    var x = this.body.unshift(nextHeadPos);
+    var y = this.body.pop();
   }
 
   Snake.prototype.turn = function(newDir) {
@@ -32,7 +32,7 @@
   }
 
   Snake.prototype.eat = function () {
-    this.body.push(null);
+    this.body.push([null, null]);
   }
 
 

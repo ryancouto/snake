@@ -6,7 +6,7 @@
   var Coord = SnakeGame.Coord = function (){};
 
   Coord.plus = function(pos, dir) {
-    var nextPos = pos;
+    var nextPos = pos.slice(0);
 
     switch (dir){
       case 'N':
