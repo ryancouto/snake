@@ -40,6 +40,7 @@
     this.snake.move();
     if (SnakeGame.Coord.equals(this.snake.head(), this.applePos)){
       this.snake.eat();
+
       this.appleGen();
     }
   }
