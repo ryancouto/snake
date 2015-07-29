@@ -18,6 +18,11 @@ body, html, ul, li, h1 {
   clear: both;
 }
 
+body {
+  font-family: sans-serif;
+  font-size: 24px;
+}
+
 .snake-game {
   text-align: center;
   font-size: 36px;
@@ -36,10 +41,32 @@ body, html, ul, li, h1 {
   border: 1px solid #AAA;
 }
 
-.snake {
+.snake-head {
   background: #F00;
+}
+
+.snake {
+  background: red;
 }
 
 .apple {
   background: #0f0;
+}
+
+.score {
+  display: inline-block;
+}
+
+.message {
+  display: none;
+}
+
+.visible > .message {
+  display: inline-block;
+  position: absolute;
+  background: green;
+  padding: 10px;
+  color: white;
+  letter-spacing: 4px;
+  font-weight: bold;
 }

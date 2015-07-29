@@ -7,11 +7,14 @@
   var Board = SnakeGame.Board = function (dimX, dimY) {
     this.dimX = dimX;
     this.dimY = dimY;
+  }
+
+  Board.prototype.setup = function () {
     this.snake = new SnakeGame.Snake(
       SnakeGame.Coord.randomPos(this.dimX, this.dimY)
     );
     this.appleGen();
-  }
+  },
 
   Board.prototype.appleGen = function () {
     var randomPos = SnakeGame.Coord.randomPos(this.dimX, this.dimY);
@@ -20,7 +23,7 @@
     } else {
       this.applePos = randomPos;
     }
-  }
+  },
 
   Board.prototype.snakeHitWall = function () {
     var head = this.snake.head();
@@ -30,11 +33,11 @@
       return true;
     }
     return false;
-  }
+  },
 
   Board.prototype.lose = function () {
     return this.snake.collidedWithSelf() || this.snakeHitWall();
-  }
+  },
 
   Board.prototype.step = function () {
     this.snake.move();

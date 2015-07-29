@@ -8,9 +8,17 @@
   <body>
     <figure class="snake-game">
     <h1>Snake</h1>
+    Score: <div class='score'></div>
+
+    <div class="restart">
+      <button>Restart Game</button>
+    </div>
+
+    <div class="loss">
+      <div class="message">You lost!</div>
+    </div>
 
     <ul class="board group">
-
     </ul>
 
     </figure>
@@ -25,23 +33,7 @@
       var $snakeGameEl = $(".snake-game");
       var board = new SnakeGame.Board(20, 20);
       var view = new SnakeGame.View($snakeGameEl, board);
-
-      $(window).on("keydown", function(event) {
-        switch (event.keyCode) {
-          case 37:
-            view.start('W');
-            break;
-          case 38:
-            view.start('S');
-            break;
-          case 39:
-            view.start('E');
-            break;
-          case 40:
-            view.start('N');
-            break;
-        }
-      })
+      $snakeGameEl.focus();
     })
     </script>
 

@@ -20,7 +20,7 @@
   }
 
   Snake.prototype.collidedWithSelf = function() {
-    return SnakeGame.Coord.collidesWithArray(this.head(), this.tail());
+    return SnakeGame.Coord.collidesWithArray(this.head(), this.tail())
   }
 
   Snake.prototype.head = function() {

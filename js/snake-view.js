@@ -6,75 +6,104 @@
 
   var View = SnakeGame.View = function ($el, board) {
     this.$el = $el;
+    this.$restart = $el.find('.restart');
+    this.$restart.on('click', 'button', this.setupGame.bind(this));
     this.board = board;
-    this.render();
-    this.started = false;
-  }
-
-  // View.prototype.setupBoard = function() {
-  //   var $boardEl = this.$el.find('.board');
-  //   for (i = 0; i < this.board.dimX; i++){
-  //     for (var j = 0; j < this.board.dimY; j++){
-  //       var $liEl = $("<li></li>");
-  //       if (SnakeGame.Coord.equals([i,j], this.board.snake.head())){
-  //         $liEl.addClass("snake");
-  //       } else if (SnakeGame.Coord.equals([i,j], this.board.applePos)){
-  //         $liEl.addClass("apple");
-  //       }
-  //       $boardEl.append($liEl);
-  //     }
-  //   }
-  // }
-
-  View.prototype.bindKeyHandlers = function () {
-    var snake = this.board.snake;
-    key('left', function() {
-      snake.turn('W');
-    })
-    key('right', function() {
-      snake.turn('E');
-    })
-    key('up', function() {
-      snake.turn('S');
-    })
-    key('down', function() {
-      snake.turn('N');
-    })
-  }
-
-  View.prototype.start = function(dir) {
-    if (this.started) { return; }
-    this.started = true;
-    var board = this.board;
-    board.snake.dir = dir;
-
+    this.setupGame();
+    this.start();
     this.bindKeyHandlers();
-
-    setInterval(function (){
-      board.step();
-      console.log("step!")
-      if (board.lose()) {
-        alert("You lose!");
-      } else {
-        this.render();
-      }
-    }.bind(this), 200);
   }
 
-  View.prototype.render = function () {
+  View.prototype.setupGame = function () {
+    this.board.setup();
+    this.gameOver = false;
+    this.setupBoard();
+    this.$el.find('.loss').removeClass('visible')
+    this.render();
+  },
+
+  View.prototype.setupBoard = function() {
     var $boardEl = this.$el.find('.board');
     $boardEl.empty();
-    for (i = 0; i < this.board.dimY; i++){
-      for (var j = 0; j < this.board.dimX; j++){
+
+    for (var i = 0; i < this.board.dimX; i++){
+      for (var j = 0; j < this.board.dimY; j++){
         var $liEl = $("<li></li>");
-        if (SnakeGame.Coord.equals([j,i], this.board.snake.head())){
-          $liEl.addClass("snake");
-        } else if (SnakeGame.Coord.equals([j,i], this.board.applePos)){
-          $liEl.addClass("apple");
-        }
         $boardEl.append($liEl);
       }
     }
+    this.$boardEls = this.$el.find('.board li');
+    this.render;
+  },
+
+  View.prototype.bindKeyHandlers = function () {
+    var view = this;
+    key('left', function() {
+      view.changeDir('W');
+    })
+    key('right', function() {
+      view.changeDir('E');
+    })
+    key('up', function() {
+      view.changeDir('S');
+    })
+    key('down', function() {
+      view.changeDir('N');
+    })
+  },
+
+  View.prototype.changeDir = function (dir) {
+    if (this.gameOver) return;
+    var snakeDir = this.board.snake.dir;
+
+    if(!SnakeGame.Coord.opposite(snakeDir, dir)) {
+      this.moveDir = dir;
+    }
+  },
+
+  View.prototype.start = function() {
+    var board = this.board;
+    setInterval(function (){
+      board.snake.turn(this.moveDir);
+      if (board.snake.dir !== undefined) {
+        board.step();
+        if (board.lose()) {
+          this.handleLoss();
+        } else {
+          this.render();
+        }
+      }
+    }.bind(this), 100);
+  },
+
+  View.prototype.renderPos = function (pos, clas) {
+    if (pos[0] === null) { return; }
+    var idx = pos[0] + this.board.dimY * pos[1];
+    this.$boardEls.eq(idx).addClass(clas);
+  },
+
+  View.prototype.render = function () {
+    this.$boardEls.removeClass('snake apple snake-head N S E W');
+    var snake = this.board.snake;
+
+    this.renderPos(snake.head(), 'snake-head' + ' ' + snake.dir)
+    snake.tail().forEach( function(tailPos) {
+      this.renderPos(tailPos, "snake")
+    }.bind(this));
+    this.renderPos(this.board.applePos, 'apple');
+    this.renderScore();
+  },
+
+  View.prototype.renderScore = function () {
+    var score = this.board.snake.body.length * 100;
+    this.$el.find('.score').html(score);
+  },
+
+  View.prototype.handleLoss = function () {
+    this.board.snake.dir = undefined;
+    this.moveDir = undefined;
+    this.gameOver = true;
+    this.$el.find('.loss').addClass('visible')
   }
 
 
