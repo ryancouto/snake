@@ -95,7 +95,7 @@
   },
 
   View.prototype.renderScore = function () {
-    var score = this.board.snake.body.length * 100;
+    var score = this.board.snake.body.length;
     this.$el.find('.score').html(score);
   },
 

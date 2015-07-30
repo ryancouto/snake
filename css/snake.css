@@ -21,36 +21,43 @@ body, html, ul, li, h1 {
 body {
   font-family: sans-serif;
   font-size: 24px;
+  color: #F38630;
+  font-weight: bold;
+  background: url('../images/blackboard.jpg');
+}
+
+h1 {
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #FA6900;
 }
 
 .snake-game {
   text-align: center;
-  font-size: 36px;
+  font-size: 28px;
 }
 
 .board {
   margin: 0 auto;
   width: 400px;
-  border: 1px solid #AAA;
+  border: 2px solid #69D2E7;
+  border-radius: 5px;
 }
 
 .board > li {
   float: left;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #AAA;
+  width: 20px;
+  height: 20px;
 }
 
 .snake-head {
-  background: #F00;
+  background: #FA6900;
 }
 
 .snake {
-  background: red;
+  background: #F38630;
 }
 
 .apple {
-  background: #0f0;
+  background: url('../images/pi.png');
 }
 
 .score {
@@ -63,10 +70,38 @@ body {
 
 .visible > .message {
   display: inline-block;
-  position: absolute;
-  background: green;
+  position: fixed;
+  font-size: 24px;
+  bottom: 240px;
+  right: 520px;
+  width: 200px;
+  background: #A7DBD8;
+  border: 2px solid #69D2E7;
+  border-radius: 10px;
   padding: 10px;
-  color: white;
+  color: #E0E4CC;
   letter-spacing: 4px;
   font-weight: bold;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+}
+
+.board {
+  background: #E0E4CC;
+}
+
+.scorer {
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #FA6900;
+}
+
+.restart button {
+  background: #E0E4CC;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FA6900;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:focus {
+  outline: 0;
 }
