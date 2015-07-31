@@ -21,13 +21,13 @@ body, html, ul, li, h1 {
 body {
   font-family: sans-serif;
   font-size: 24px;
-  color: #F38630;
+  color: #ccc;
   font-weight: bold;
   background: url('../images/blackboard.jpg');
 }
 
 h1 {
-  text-shadow: 1px 1px 1px #000, 2px 2px 3px #FA6900;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
 }
 
 .snake-game {
@@ -38,8 +38,9 @@ h1 {
 .board {
   margin: 0 auto;
   width: 400px;
-  border: 2px solid #69D2E7;
+  border: 2px solid #aaa;
   border-radius: 5px;
+  background: #ccc;
 }
 
 .board > li {
@@ -49,11 +50,47 @@ h1 {
 }
 
 .snake-head {
-  background: #FA6900;
+  background: green;
 }
 
+/*.snake-head:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-radius: 5px;
+}*/
+
+/*.snake-head.W:after {
+	border-bottom: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-right: 18px solid black;
+	height: 8px;
+}
+
+.snake-head.E:after {
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 18px solid black;
+	height: 8px;
+}
+
+.snake-head.S:after {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 18px solid black;
+	width: 8px;
+}
+
+.snake-head.N:after {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 18px solid black;
+	width: 8px;
+}*/
+
 .snake {
-  background: #F38630;
+  background: green;
 }
 
 .apple {
@@ -75,29 +112,26 @@ h1 {
   bottom: 240px;
   right: 520px;
   width: 200px;
-  background: #A7DBD8;
-  border: 2px solid #69D2E7;
+  background: #ccc;
+  border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
-  color: #E0E4CC;
+  color: #ccc;
   letter-spacing: 4px;
   font-weight: bold;
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
 }
 
-.board {
-  background: #E0E4CC;
-}
-
 .scorer {
-  text-shadow: 1px 1px 1px #000, 2px 2px 3px #FA6900;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+  color: #aaa;
 }
 
 .restart button {
-  background: #E0E4CC;
+  background: #ccc;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #FA6900;
+  color: white;
   cursor: pointer;
   font-weight: bold;
 }
