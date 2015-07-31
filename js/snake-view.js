@@ -65,6 +65,7 @@
     var board = this.board;
     setInterval(function (){
       board.snake.turn(this.moveDir);
+      this.$el.find('.snake-head').addClass(this.moveDir)
       if (board.snake.dir !== undefined) {
         board.step();
         if (board.lose()) {
