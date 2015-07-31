@@ -6,8 +6,6 @@
 
   var View = SnakeGame.View = function ($el, board) {
     this.$el = $el;
-    this.$restart = $el.find('.restart');
-    this.$restart.on('click', 'button', this.setupGame.bind(this));
     this.board = board;
     this.setupGame();
     this.start();
@@ -18,7 +16,6 @@
     this.board.setup();
     this.gameOver = false;
     this.setupBoard();
-    this.$el.find('.loss').removeClass('visible')
     this.render();
   },
 
@@ -49,6 +46,10 @@
     })
     key('down', function() {
       view.changeDir('N');
+    })
+    key('space', function () {
+
+      view.setupGame();
     })
   },
 
