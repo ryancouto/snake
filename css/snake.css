@@ -38,7 +38,7 @@ h1 {
 .board {
   margin: 0 auto;
   width: 400px;
-  border: 2px solid #aaa;
+  border: 10px solid #ccc;
   border-radius: 5px;
   background: #ccc;
 }
@@ -49,48 +49,54 @@ h1 {
   height: 20px;
 }
 
-.snake-head {
-  background: green;
+.board .snake-head {
+  background: #137B13;
+  display: inline-block;
+  position: relative;
 }
 
-/*.snake-head:after {
-	content: "";
-	position: absolute;
-	width: 0;
-	height: 0;
-	border-radius: 5px;
-}*/
-
-/*.snake-head.W:after {
-	border-bottom: 5px solid transparent;
-	border-top: 5px solid transparent;
-	border-right: 18px solid black;
-	height: 8px;
+.snake-head:before {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0;
 }
 
-.snake-head.E:after {
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-left: 18px solid black;
-	height: 8px;
+.snake-head.W:before {
+	border-bottom: 10px solid transparent;
+	border-top: 10px solid transparent;
+	border-right: 10px solid #137B13;
+  left: -10px;
 }
 
-.snake-head.S:after {
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 18px solid black;
-	width: 8px;
+.snake-head.E:before {
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid #137B13;
+  right: -10px;
 }
 
-.snake-head.N:after {
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-top: 18px solid black;
-	width: 8px;
-}*/
+.snake-head.S:before {
+  border-bottom: 10px solid #137B13;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: -10px;
+  left: 0px;
+}
 
-.snake {
-  background: green;
+.snake-head.N:before {
+  border-top: 10px solid #137B13;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  bottom: -10px;
+  left: 0px;
+}
+
+.board .snake {
+  height: 18px;
+  width: 18px;
+  margin: 1px;
+  background: #31A231;
 }
 
 .apple {

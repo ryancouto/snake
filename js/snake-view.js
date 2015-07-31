@@ -15,6 +15,7 @@
   View.prototype.setupGame = function () {
     this.board.setup();
     this.gameOver = false;
+    this.paused = false;
     this.setupBoard();
     this.render();
   },
@@ -48,9 +49,17 @@
       view.changeDir('N');
     })
     key('space', function () {
-
-      view.setupGame();
+      if (view.gameOver) {
+        view.setupGame();
+      } else {
+        debugger
+        view.togglePause();
+      }
     })
+  },
+
+  View.prototype.togglePause = function () {
+    this.paused = this.paused ? false : true;
   },
 
   View.prototype.changeDir = function (dir) {
@@ -65,6 +74,9 @@
   View.prototype.start = function() {
     var board = this.board;
     setInterval(function (){
+      if (this.paused) {
+        return;
+      }
       board.snake.turn(this.moveDir);
       this.$el.find('.snake-head').addClass(this.moveDir)
       if (board.snake.dir !== undefined) {

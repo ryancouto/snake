@@ -4,7 +4,7 @@
   }
 
   var Snake = SnakeGame.Snake = function (headPos) {
-    this.body = [headPos];
+    this.body = [headPos, [headPos[0], headPos[1]-1], [headPos[0], headPos[1]-2]];
     this.dir = undefined;
   }
 
