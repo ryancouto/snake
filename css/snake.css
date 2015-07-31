@@ -18,16 +18,23 @@ body, html, ul, li, h1 {
   clear: both;
 }
 
+@font-face {
+  font-family: 'Schalk';
+  src: url('../Schalk.ttf');
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Schalk";
   font-size: 24px;
-  color: #ccc;
+  color: white;
   font-weight: bold;
   background: url('../images/blackboard.jpg');
+  letter-spacing: 5px;
 }
 
 h1 {
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+
 }
 
 .snake-game {
@@ -38,9 +45,10 @@ h1 {
 .board {
   margin: 0 auto;
   width: 400px;
-  border: 10px solid #ccc;
+  border: 10px solid #A36F57;
+  /*border-image: url('../images/chalkboard-green.jpg') 10 10 stretch;*/
   border-radius: 5px;
-  background: #ccc;
+  background: url('../images/chalkboard-green.jpg');
 }
 
 .board > li {
@@ -50,7 +58,7 @@ h1 {
 }
 
 .board .snake-head {
-  background: #137B13;
+  background: #fffef9;
   display: inline-block;
   position: relative;
 }
@@ -65,19 +73,19 @@ h1 {
 .snake-head.W:before {
 	border-bottom: 10px solid transparent;
 	border-top: 10px solid transparent;
-	border-right: 10px solid #137B13;
+	border-right: 10px solid white;
   left: -10px;
 }
 
 .snake-head.E:before {
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
-	border-left: 10px solid #137B13;
+	border-left: 10px solid white;
   right: -10px;
 }
 
 .snake-head.S:before {
-  border-bottom: 10px solid #137B13;
+  border-bottom: 10px solid white;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   top: -10px;
@@ -85,7 +93,7 @@ h1 {
 }
 
 .snake-head.N:before {
-  border-top: 10px solid #137B13;
+  border-top: 10px solid white;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   bottom: -10px;
@@ -96,52 +104,30 @@ h1 {
   height: 18px;
   width: 18px;
   margin: 1px;
-  background: #31A231;
+  background: #f4f4f0;
 }
 
 .apple {
-  background: url('../images/pi.png');
+  position: relative;
+}
+
+.apple:after {
+  font-size: 20px;
+  font-family: cursive;
+  content: 'π';
+  position: absolute;
+  color: #fffef9;
+  top: -5px;
+  left: 2px;
+  z-index: 999;
+  height: 20px;
+  width: 20px;
 }
 
 .score {
   display: inline-block;
 }
 
-.message {
-  display: none;
-}
-
-.visible > .message {
-  display: inline-block;
-  position: fixed;
-  font-size: 24px;
-  bottom: 240px;
-  right: 520px;
-  width: 200px;
-  background: #ccc;
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 10px;
-  color: #ccc;
-  letter-spacing: 4px;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-}
-
 .scorer {
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-  color: #aaa;
-}
-
-.restart button {
-  background: #ccc;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:focus {
-  outline: 0;
 }

@@ -30,8 +30,25 @@
         $boardEl.append($liEl);
       }
     }
+
     this.$boardEls = this.$el.find('.board li');
+    this.appleSymbol();
     this.render;
+  },
+
+  View.prototype.appleSymbol = function () {
+    this.appleSyms = {
+      'pi': 3.1415926535,
+      'phi': 1.6180339887,
+      'psi': 3.3598856662,
+      'e': 2.7182818284
+    }
+
+    var count = 0;
+    for (var prop in this.appleSyms)
+        if (Math.random() < 1/++count)
+           this.symbol = prop;
+    return this.symbol;
   },
 
   View.prototype.bindKeyHandlers = function () {
@@ -52,7 +69,6 @@
       if (view.gameOver) {
         view.setupGame();
       } else {
-        debugger
         view.togglePause();
       }
     })
@@ -104,13 +120,16 @@
     snake.tail().forEach( function(tailPos) {
       this.renderPos(tailPos, "snake")
     }.bind(this));
-    this.renderPos(this.board.applePos, 'apple');
+    this.renderPos(this.board.applePos, 'apple ');
+    this.$apple = this.$el.find('.apple')
+    debugger
+    $(this.board).find('.apple').addClass(this.symbol)
     this.renderScore();
   },
 
   View.prototype.renderScore = function () {
-    var score = this.board.snake.body.length;
-    this.$el.find('.score').html(score);
+    var score = ((this.board.snake.body.length - 1) * Math.PI).toString();
+    this.$el.find('.score').html(score.slice(0,10));
   },
 
   View.prototype.handleLoss = function () {
