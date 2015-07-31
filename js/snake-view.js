@@ -123,7 +123,6 @@
     this.renderPos(this.board.applePos, 'apple ');
     this.$apple = this.$el.find('.apple')
     debugger
-    $(this.board).find('.apple').addClass(this.symbol)
     this.renderScore();
   },
 
