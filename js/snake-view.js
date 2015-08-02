@@ -32,23 +32,7 @@
     }
 
     this.$boardEls = this.$el.find('.board li');
-    this.appleSymbol();
     this.render;
-  },
-
-  View.prototype.appleSymbol = function () {
-    this.appleSyms = {
-      'pi': 3.1415926535,
-      'phi': 1.6180339887,
-      'psi': 3.3598856662,
-      'e': 2.7182818284
-    }
-
-    var count = 0;
-    for (var prop in this.appleSyms)
-        if (Math.random() < 1/++count)
-           this.symbol = prop;
-    return this.symbol;
   },
 
   View.prototype.bindKeyHandlers = function () {
@@ -122,7 +106,6 @@
     }.bind(this));
     this.renderPos(this.board.applePos, 'apple ');
     this.$apple = this.$el.find('.apple')
-    debugger
     this.renderScore();
   },
 

@@ -6,15 +6,43 @@
     <link rel="stylesheet" href="./css/snake.css" charset="utf-8">
   </head>
   <body>
-    <figure class="snake-game group">
+  <figure class="snake-game group">
     <h1>Snakes on a Euclidean Plane</h1>
     <br>
-    <ul class="board group">
-    </ul>
-    <div id="base"></div>
-    <br>
-    <div class="scorer">Score: <div class='score'></div></div>
-    </figure>
+    <div class="main">
+
+      <ul class="left">
+
+        <li class="scorer">Score:<br>
+          <div class='score'></div>
+        </li>
+        <br><br><br><br><br>
+        <li class="pause-screen">
+          Press Space to pause or restart
+        </li>
+
+        <li class="high-scores">
+          <ul>
+            <li>
+              1.
+            </li>
+            <li>
+              2.
+            </li>
+            <li>
+              3.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <span class="right">
+        <ul class="board group">
+        </ul>
+      </span>
+
+    </div>
+  </figure>
     <script src="./js/jquery-2.1.1.js"></script>
     <script src="./keymaster-master/keymaster.js"></script>
     <script src="./js/coord.js"></script>

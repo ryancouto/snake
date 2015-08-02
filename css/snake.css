@@ -122,6 +122,7 @@ h1 {
   z-index: 999;
   height: 20px;
   width: 20px;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
 }
 
 .score {
@@ -130,4 +131,40 @@ h1 {
 
 .scorer {
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+  /*border: 10px solid #A36F57;*/
+  /*border-image: url('../images/chalkboard-green.jpg') 10 10 stretch;*/
+  /*border-radius: 5px;
+  background: url('../images/chalkboard-green.jpg');*/
+  padding: 20px;
+}
+
+.left {
+  float: left;
+  width: 280px;
+  border: 10px solid #A36F57;
+  /*border-image: url('../images/chalkboard-green.jpg') 10 10 stretch;*/
+  border-radius: 5px;
+  background: url('../images/chalkboard-green.jpg');
+}
+
+.right {
+  float: left;
+  width: 420px;
+}
+.main {
+  margin: 0 auto;
+  width: 720px;
+}
+
+.high-scores {
+  display: none;
+}
+
+.pause-screen {
+  padding: 20px;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+  /*border: 10px solid #A36F57;*/
+  /*border-image: url('../images/chalkboard-green.jpg') 10 10 stretch;*/
+  /*border-radius: 5px;
+  background: url('../images/chalkboard-green.jpg');*/
 }
