@@ -45,9 +45,9 @@ h1 {
 .board {
   margin: 0 auto;
   width: 400px;
-  border: 10px solid #A36F57;
+  border: 5px solid #A36F57;
   /*border-image: url('../images/chalkboard-green.jpg') 10 10 stretch;*/
-  border-radius: 5px;
+  border-radius: 2px;
   background: url('../images/chalkboard-green.jpg');
 }
 
@@ -162,9 +162,9 @@ h1 {
   position: absolute;
   padding: 20px;
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-  border: 10px solid #A36F57;
+  border: 3px solid #A36F57;
   background: url('../images/chalkboard-black.jpg');
-  border-radius: 5px;
+  border-radius: 2px;
   opacity: 1;
 }
 
@@ -175,9 +175,9 @@ h1 {
   position: absolute;
   padding: 20px;
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-  border: 10px solid #A36F57;
+  border: 3px solid #A36F57;
   background: url('../images/chalkboard-black.jpg');
-  border-radius: 5px;
+  border-radius: 2px;
   opacity: 1;
 }
 
@@ -188,9 +188,9 @@ h1 {
   position: absolute;
   padding: 20px;
   text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-  border: 10px solid #A36F57;
+  border: 2px solid #A36F57;
   background: url('../images/chalkboard-black.jpg');
-  border-radius: 5px;
+  border-radius: 2px;
   opacity: 1;
 }
 
