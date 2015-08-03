@@ -157,33 +157,9 @@ h1 {
 
 .pause-screen {
   font-size: 18px;
-  margin: 130px 30px 0;
-  width: 300px;
-  position: absolute;
-  padding: 20px;
-  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-  border: 3px solid #A36F57;
-  background: url('../images/chalkboard-black.jpg');
-  border-radius: 2px;
-  opacity: 1;
-}
-
-.start-screen {
-  font-size: 18px;
-  margin: 130px 28px 0;
-  width: 305px;
-  position: absolute;
-  padding: 20px;
-  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
-  border: 3px solid #A36F57;
-  background: url('../images/chalkboard-black.jpg');
-  border-radius: 2px;
-  opacity: 1;
-}
-
-.restart-screen {
-  font-size: 18px;
-  margin: 130px 30px 0;
+  margin-top: 130px;
+  margin-left: 37px;
+  margin-right: auto;
   width: 300px;
   position: absolute;
   padding: 20px;
@@ -191,7 +167,38 @@ h1 {
   border: 2px solid #A36F57;
   background: url('../images/chalkboard-black.jpg');
   border-radius: 2px;
-  opacity: 1;
+  opacity: 0.9;
+  z-index: 99;
+}
+
+.start-screen {
+  font-size: 18px;
+  margin-top: 130px;
+  margin-left: 35px;
+  width: 305px;
+  position: absolute;
+  padding: 20px;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+  border: 2px solid #A36F57;
+  background: url('../images/chalkboard-black.jpg');
+  border-radius: 2px;
+  opacity: 0.9;
+  z-index: 99;
+}
+
+.restart-screen {
+  font-size: 18px;
+  margin-top: 130px;
+  margin-left: 38px;
+  width: 300px;
+  position: absolute;
+  padding: 20px;
+  text-shadow: 1px 1px 1px #000, 2px 2px 3px #000;
+  border: 2px solid #A36F57;
+  background: url('../images/chalkboard-black.jpg');
+  border-radius: 2px;
+  opacity: 0.9;
+  z-index: 99;
 }
 
 .hidden {
