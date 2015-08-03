@@ -52,6 +52,8 @@
     key('space', function () {
       if (view.gameOver) {
         view.setupGame();
+        debugger
+        view.$el.find('.restart-screen').addClass('hidden')
       } else {
         view.togglePause();
       }
@@ -72,14 +74,25 @@
   },
 
   View.prototype.start = function() {
+    var pauseScreen = this.$el.find('.pause-screen');
+    var startScreen = this.$el.find('.start-screen');
     var board = this.board;
     setInterval(function (){
       if (this.paused) {
+        if (pauseScreen.hasClass('hidden')) {
+          pauseScreen.removeClass('hidden');
+        }
         return;
       }
       board.snake.turn(this.moveDir);
       this.$el.find('.snake-head').addClass(this.moveDir)
       if (board.snake.dir !== undefined) {
+        if (!pauseScreen.hasClass('hidden')) {
+          pauseScreen.addClass('hidden');
+        }
+        if (!startScreen.hasClass('hidden')) {
+          startScreen.addClass('hidden');
+        }
         board.step();
         if (board.lose()) {
           this.handleLoss();
@@ -118,7 +131,7 @@
     this.board.snake.dir = undefined;
     this.moveDir = undefined;
     this.gameOver = true;
-    this.$el.find('.loss').addClass('visible')
+    this.$el.find('.restart-screen').removeClass('hidden')
   }
 
 

@@ -10,37 +10,25 @@
     <h1>Snakes on a Euclidean Plane</h1>
     <br>
     <div class="main">
+        <div class="pause-screen hidden">
+          Press [Space] to unpause
+        </div>
 
-      <ul class="left">
+        <div class="start-screen">
+          Use directional keys to lead the snake to pi
+          <br>
+          Press [Space] to pause
+        </div>
 
-        <li class="scorer">Score:<br>
-          <div class='score'></div>
-        </li>
-        <br><br><br><br><br>
-        <li class="pause-screen">
-          Press Space to pause or restart
-        </li>
+        <div class="restart-screen hidden">
+          Press [Space] to start a new game
+        </div>
 
-        <li class="high-scores">
-          <ul>
-            <li>
-              1.
-            </li>
-            <li>
-              2.
-            </li>
-            <li>
-              3.
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <span class="right">
         <ul class="board group">
         </ul>
-      </span>
-
+        <div class="scorer">Score:
+          <div class='score'></div>
+        </div>
     </div>
   </figure>
     <script src="./js/jquery-2.1.1.js"></script>
