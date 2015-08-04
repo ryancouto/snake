@@ -11,7 +11,7 @@
 
   Board.prototype.setup = function () {
     this.snake = new SnakeGame.Snake(
-      SnakeGame.Coord.randomPos(this.dimX, this.dimY)
+    [this.dimX/2, this.dimY/2]
     );
     this.appleGen();
   },

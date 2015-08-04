@@ -7,9 +7,8 @@
   var View = SnakeGame.View = function ($el, board) {
     this.$el = $el;
     this.board = board;
-    this.setupGame();
-    this.start();
     this.bindKeyHandlers();
+    this.setupGame();
   }
 
   View.prototype.setupGame = function () {
@@ -52,12 +51,15 @@
     key('space', function () {
       if (view.gameOver) {
         view.setupGame();
-        debugger
         view.$el.find('.restart-screen').addClass('hidden')
-      } else {
+      } else if (view.board.snake.dir !== undefined){
         view.togglePause();
+      } else {
+        view.moveDir = 'S';
+        view.$el.find('.start-screen').addClass('hidden');
+        view.start();
       }
-    })
+    });
   },
 
   View.prototype.togglePause = function () {
@@ -77,6 +79,7 @@
     var pauseScreen = this.$el.find('.pause-screen');
     var startScreen = this.$el.find('.start-screen');
     var board = this.board;
+    debugger
     setInterval(function (){
       if (this.paused) {
         if (pauseScreen.hasClass('hidden')) {
