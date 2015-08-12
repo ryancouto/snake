@@ -29,7 +29,6 @@
         $boardEl.append($liEl);
       }
     }
-
     this.$boardEls = this.$el.find('.board li');
     this.render;
   },
@@ -52,6 +51,8 @@
       if (view.gameOver) {
         view.setupGame();
         view.$el.find('.restart-screen').addClass('hidden')
+        view.gameOver = false;
+        view.$el.find('.start-screen').removeClass('hidden')
       } else if (view.board.snake.dir !== undefined){
         view.togglePause();
       } else {
@@ -79,32 +80,30 @@
     var pauseScreen = this.$el.find('.pause-screen');
     var startScreen = this.$el.find('.start-screen');
     var board = this.board;
-    debugger
-    setInterval(function (){
-      if (this.paused) {
-        if (pauseScreen.hasClass('hidden')) {
+    this.interval = setInterval(function (){
+        if (this.paused) {
           pauseScreen.removeClass('hidden');
-        }
-        return;
-      }
-      board.snake.turn(this.moveDir);
-      this.$el.find('.snake-head').addClass(this.moveDir)
-      if (board.snake.dir !== undefined) {
-        if (!pauseScreen.hasClass('hidden')) {
-          pauseScreen.addClass('hidden');
-        }
-        if (!startScreen.hasClass('hidden')) {
-          startScreen.addClass('hidden');
-        }
-        board.step();
-        if (board.lose()) {
-          this.handleLoss();
+          return;
         } else {
-          this.render();
+          board.snake.turn(this.moveDir);
+          this.$el.find('.snake-head').addClass(this.moveDir)
+          if (board.snake.dir !== undefined) {
+            if (!pauseScreen.hasClass('hidden')) {
+              pauseScreen.addClass('hidden');
+            }
+            if (!startScreen.hasClass('hidden')) {
+              startScreen.addClass('hidden');
+            }
+            board.step();
+            if (board.lose()) {
+              this.handleLoss();
+            } else {
+              this.render();
+            }
+          }
         }
-      }
-    }.bind(this), 100);
-  },
+      }.bind(this), 60);
+    },
 
   View.prototype.renderPos = function (pos, clas) {
     if (pos[0] === null) { return; }
@@ -134,7 +133,9 @@
     this.board.snake.dir = undefined;
     this.moveDir = undefined;
     this.gameOver = true;
-    this.$el.find('.restart-screen').removeClass('hidden')
+    this.$el.find('.restart-screen').removeClass('hidden');
+    window.clearInterval(this.interval)
+
   }
 
 
