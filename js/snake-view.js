@@ -102,7 +102,7 @@
             }
           }
         }
-      }.bind(this), 80);
+      }.bind(this), 70);
     },
 
   View.prototype.renderPos = function (pos, clas) {
